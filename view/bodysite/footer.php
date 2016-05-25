@@ -1,3 +1,4 @@
+<div class="push"></div>
 <footer class="bs-docs-footer" role="contentinfo">
     
     <ul class="bs-docs-footer-links"> 

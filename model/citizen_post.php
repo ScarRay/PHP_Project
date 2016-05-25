@@ -10,9 +10,9 @@ catch(Exception $e)
 }
 
 // Insertion du message à l'aide d'une requête préparée
-$req = $bdd->prepare('INSERT INTO minichat (pseudo, message, date) VALUES(?, ?, CURRENT_TIMESTAMP)');
-$req->execute(array($_POST['pseudo'], $_POST['message']));
+$req = $bdd->prepare('INSERT INTO citizen_news (siteName,idName,url,avis) VALUES(?,?,?,0)');
+$req->execute(array($_POST['siteName'],$_POST['idName'],$_POST['url']));
 
 // Redirection du visiteur vers la page du minichat
-header('Location: ../view/minichat/minichat.php');
+header('Location: ../view/citizen/citizen.php');
 ?>

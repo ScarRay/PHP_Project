@@ -1,7 +1,7 @@
 <article>
     <h2>Ajouter un épisode</h2>
 
-    <form class="form-horizontal" role="form" action="../../model/serie_post.php" method="post">
+    <form class="form-horizontal" role="form" action="/PHP_Project/model/serie_post.php" method="post">
         <div class="form-group">
             <label class="control-label col-sm-3" for="name">Nom série :</label>
             <div class="col-sm-8">
@@ -46,11 +46,24 @@
     <?php 
     $messagesParPage=5; //Nous allons afficher 5 messages par page.
  
+ try
+{
+    $bdd = new mysqli("localhost", "root", "root", "webtool");
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
+
     //Une connexion SQL doit être ouverte avant cette ligne...
-    $retour_total=mysql_query('SELECT COUNT(*) AS total FROM series'); //Nous récupérons le contenu de la requête dans $retour_total
-    $donnees_total=mysql_fetch_assoc($retour_total); //On range retour sous la forme d'un tableau.
-    $total=$donnees_total['total']; //On récupère le total pour le placer dans la variable $total.
- 
+    //$retour_total=$bdd->query('SELECT COUNT(*) AS total FROM series'); //Nous récupérons le contenu de la requête dans $retour_total
+    $result = $bdd->query("SELECT COUNT(*) AS nb FROM series");
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $total = $row['nb'];
+    
+    //$donnees_total=mysqli_fetch_assoc($retour_total); //On range retour sous la forme d'un tableau.
+    //$total=$donnees_total['total']; //On récupère le total pour le placer dans la variable $total.
+    
     //Nous allons maintenant compter le nombre de pages.
     $nombreDePages=ceil($total/$messagesParPage);
 
@@ -63,11 +76,12 @@ if(isset($_GET['page'])) {
 else { $pageActuelle=1; }
  
 $premiereEntree=($pageActuelle-1)*$messagesParPage;
-$retour_messages=mysql_query('SELECT * FROM series ORDER BY id ASC LIMIT '.$premiereEntree.', '.$messagesParPage.'');
+$query = 'SELECT * FROM series ORDER BY id ASC LIMIT '.$premiereEntree.', '.$messagesParPage.'';
+if ($retour_messages = $bdd->query($query)) {
 ?>
         <p>
             <?php
-while($donnees =mysql_fetch_assoc($retour_messages)) {
+while($donnees = $retour_messages->fetch_assoc()) {
      ?>
                 <div class="serieStyleInline">
                     <?php echo $donnees['name']; ?>
@@ -89,6 +103,7 @@ for($i=1; $i<=$nombreDePages; $i++) {
      }
 }
 echo '</p>';
+}
    
         ?>
 </article>

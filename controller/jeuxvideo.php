@@ -1,11 +1,12 @@
 <article>
     <?php 
     $messagesParPage=5; //Nous allons afficher 5 messages par page.
- 
+    $bdd = new mysqli("localhost", "root", "root", "webtool");
+
     //Une connexion SQL doit être ouverte avant cette ligne...
-    $retour_total=mysql_query('SELECT COUNT(*) AS total FROM jeux_video'); //Nous récupérons le contenu de la requête dans $retour_total
-    $donnees_total=mysql_fetch_assoc($retour_total); //On range retour sous la forme d'un tableau.
-    $total=$donnees_total['total']; //On récupère le total pour le placer dans la variable $total.
+    $result = $bdd->query("SELECT COUNT(*) AS nb FROM jeux_video");
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $total = $row['nb'];; //On récupère le total pour le placer dans la variable $total.
  
     //Nous allons maintenant compter le nombre de pages.
     $nombreDePages=ceil($total/$messagesParPage);
@@ -19,8 +20,8 @@ if(isset($_GET['page'])) {
 else { $pageActuelle=1; }
  
 $premiereEntree=($pageActuelle-1)*$messagesParPage;
-$retour_messages=mysql_query('SELECT * FROM jeux_video ORDER BY id DESC LIMIT '.$premiereEntree.', '.$messagesParPage.'');
-while($donnees =mysql_fetch_assoc($retour_messages)) {
+$retour_messages=$bdd->query('SELECT * FROM jeux_video ORDER BY id DESC LIMIT '.$premiereEntree.', '.$messagesParPage.'');
+while($donnees = $retour_messages->fetch_assoc()) {
      ?>
         <p>
         <strong>Jeu</strong> :

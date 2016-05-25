@@ -1,0 +1,67 @@
+li.active a, li.active a:hover {
+    background:#fff;
+    color:#4c4c4c;
+}
+
+/*----- Content of Tabs -----*/
+.tab-content{
+    height: 300px;
+    overflow: auto;
+    padding:15px;
+    border-radius:3px;
+    box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+    background:#fff;
+    border:solid 1px grey;
+}
+ 
+.tab {
+    display:none;
+}
+ 
+.tab.active {
+    display:block;
+}
+
+#loadingFrame {
+    height: 30%;
+    width: 30%;
+    margin:47%;
+}
+#containerNews {
+    display: table;
+    width: 100%;
+    min-height: 75%;
+}
+
+#une , #politique{
+    width: 50%;
+    min-width: 250px;
+    display: table-cell;
+}
+
+.titleAndDate p {
+    margin:0;
+    padding:0;
+    display: inline-block;
+}
+.titleAndDate:hover {
+    background-color: yellow !important;
+    cursor: pointer !important;
+    cursor: hand !important;
+}
+
+.date {
+    float : right;
+    color: #006BD7;
+    font-size: 10px;
+}
+
+.title {
+    word-break: break-word;
+    max-width: 70%;
+}
+
+
+#rss_num {
+    font-size:16px;
+}

@@ -14,5 +14,5 @@ $req = $bdd->prepare('INSERT INTO series (name,numEpisode,date,src,description,a
 $req->execute(array($_POST['name'], $_POST['numEpisode'],'<iframe width="325" height="200" src="'.$_POST['url'].'" frameborder="0" allowfullscreen></iframe>', $_POST['description'], $_POST['author']));
 
 // Redirection du visiteur vers la page du minichat
-header('Location: ../../view/series/findSerie.php');
+header('Location: ../view/series/findSerie.php');
 ?>
