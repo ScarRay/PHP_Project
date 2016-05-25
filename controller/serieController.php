@@ -1,41 +1,61 @@
 <article>
-    <h2>Ajouter un épisode</h2>
-
+    <h2>Ajouter un épisode ou channel à suivre</h2>
+    <div class="col-sm-12">
+    <div class="col-sm-6">
     <form class="form-horizontal" role="form" action="/PHP_Project/model/serie_post.php" method="post">
         <div class="form-group">
-            <label class="control-label col-sm-3" for="name">Nom série :</label>
-            <div class="col-sm-8">
+            <label class="control-label col-sm-5" for="name">Nom série :</label>
+            <div class="col-sm-7">
                 <input type="text" class="form-control" name="name" id="name" placeholder="Entrez le nom de la série">
             </div>
             
-            <label class="control-label col-sm-3" for="numEpisode">Numéro de l'épisode :</label>
-            <div class="col-sm-8">
+            <label class="control-label col-sm-5" for="numEpisode">Numéro de l'épisode :</label>
+            <div class="col-sm-7">
                 <input type="number" class="form-control" name="numEpisode" id="numEpisode" placeholder="Entrez le numéro de l'épisode">
             </div>
             
-            <label class="control-label col-sm-3" for="url">URL Embed :</label>
-            <div class="col-sm-8">
+            <label class="control-label col-sm-5" for="url">URL Embed :</label>
+            <div class="col-sm-7">
                 <input type="text" class="form-control" name="url" id="url" placeholder="Entrez l'url au format embed de l'épisode">
             </div>
-            <label class="control-label col-sm-3" for="author">Auteur :</label>
-            <div class="col-sm-8">
+            <label class="control-label col-sm-5" for="author">Auteur :</label>
+            <div class="col-sm-7">
                 <input type="text" class="form-control" name="author" id="author" placeholder="Entrez le nom de l'auteur">
             </div>
         </div>
         
         
         <div class="form-group">
-            <label class="control-label col-sm-3" for="description">Description :</label>
-            <div class="col-sm-8">
+            <label class="control-label col-sm-5" for="description">Description :</label>
+            <div class="col-sm-7">
                 <textArea type="text" class="form-control" name="description" id="description" placeholder="Entrez une description de l'épisode"></textArea>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-10">
-                <button type="submit" class="btn btn-default">Ajouter</button>
+            <div class="col-sm-offset-5 col-sm-7">
+                <button type="submit" class="btn btn-success">Ajouter épisode</button>
             </div>
         </div>
     </form>
+    </div>
+
+
+
+    <div class="col-sm-6">
+    <form class="form-horizontal" role="form" action="/PHP_Project/model/channel_post.php" method="post">
+        <div class="form-group">
+            <label class="control-label col-sm-5" for="channelName">Nom du channel :</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="channelName" id="channelName" placeholder="Entrez le nom du channel à ajouter">
+            </div>
+        </div>
+            <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-7">
+                <button type="submit" class="btn btn-info">Ajouter channel</button>
+            </div>
+    </form>
+    </div>
+    </div>
     
 </article>
 
@@ -44,7 +64,7 @@
     <hr/>
     <h2>Listes de épisodes</h2>
     <?php 
-    $messagesParPage=5; //Nous allons afficher 5 messages par page.
+    $messagesParPage=8; //Nous allons afficher 5 messages par page.
  
  try
 {
@@ -106,4 +126,12 @@ echo '</p>';
 }
    
         ?>
+</article>
+
+<article>
+<hr/>
+    <h2>Célébrités à suivre</h2>
+
+    
+    
 </article>
