@@ -3,6 +3,18 @@ body {
     background-color: #f0f0f0 !important;
 }
 
+.hideCategorie {
+    cursor:pointer;
+    height: auto; 
+    width: auto; 
+    margin-left:-35px;
+    max-width: 35px;  
+    max-height: 35px;
+}
+.hideCategorie:hover{
+    background-color: lightgrey;
+}
+
 article {
     margin-left : 3em;
     margin-right : 3em;

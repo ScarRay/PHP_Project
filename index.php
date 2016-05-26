@@ -19,7 +19,6 @@
 
                 <div id="container">
                     <h1 class="page-header">Index</h1>
-                    
                     <?php include("roadmap.php");?>
                     <?php include("progression.php"); ?>
                 </div>

@@ -1,6 +1,12 @@
 
 $(document).ready(function () {
 
+	$("#hideCeleb").rotate({ endDeg:180,duration:0.2, persist:true });
+ 
+
+
+
+
 var inputUserName = '';
 var apiKey = "AIzaSyAGL37W8vsO8Mn8-SE8hKBjyj2r6aohSDQ";
 

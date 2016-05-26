@@ -11,6 +11,7 @@
     <script src="/PHP_Project/js/jquery-1.12.3.js"></script>
     <script src="/PHP_Project/css/bootstrap/js/bootstrap.min.js"></script>
     <script src="/PHP_Project/js/youtubeApi.js"></script>
+    
 </head>
 
 <body>
@@ -24,6 +25,6 @@
 
             </div>
             <?php include("../bodysite/footer.php"); ?>
-
+<script src="/PHP_Project/js/jquery.rotate.1-1.js"></script>
 </body>
 </html>

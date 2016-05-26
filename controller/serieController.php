@@ -1,6 +1,7 @@
 <article>
-    <h2>Ajouter un épisode ou channel à suivre</h2>
-    <div class="col-sm-12">
+    
+    <h2><img id="hideAddEps" class="hideCategorie" src="/PHP_Project/controller/down-arrow.png">  Ajouter un épisode ou channel à suivre</h2>
+    <div class="col-sm-12" style="display:none;">
     <div class="col-sm-12 col-lg-6">
     <form class="form-horizontal" role="form" action="/PHP_Project/model/serie_post.php" method="post">
         <div class="form-group">
@@ -75,16 +76,16 @@
 </article>
 
 
-<article >
+<article>
 <div class="col-sm-12">
     <hr/>
 </div>
-    <h2>Listes des épisodes <small style="float:right;">EFFECTUER UNE RECHERCHE : <input type="text" name="q" id="q" /><button id="cancelButton" class="btn btn-danger" type="button" disabled="disabled">X</button></small></h2>
+    <h2><img id="hideListeEps" class="hideCategorie" src="/PHP_Project/controller/down-arrow.png">  Listes des épisodes <small  style="display:none;float:right;">EFFECTUER UNE RECHERCHE : <input type="text" name="q" id="q" /><button id="cancelButton" class="btn btn-danger" type="button" disabled="disabled">X</button></small></h2>
     
 <!--fin du formulaire-->
  
 <!--preparation de l'affichage des resultats-->
-<div id="results">
+<div id="results" style="display:none;">
     <?php 
     $messagesParPage=6; //Nous allons afficher 5 messages par page.
  
@@ -158,8 +159,8 @@ echo '</p>';
 <hr/>
    
   </div>  
-   <h2>Célébrités à suivre</h2>
-   <div class="row" id="userAddedDiv">
+   <h2><img id="hideCeleb" class="hideCategorie" src="/PHP_Project/controller/down-arrow.png">  Célébrités à suivre</h2>
+   <div style="display:none;" class="row" id="userAddedDiv">
 
    <?php 
         $result = $bdd->query("SELECT COUNT(*) AS nb FROM channels");
