@@ -1,38 +1,38 @@
 <article>
     <h2>Ajouter un épisode ou channel à suivre</h2>
     <div class="col-sm-12">
-    <div class="col-sm-6">
+    <div class="col-sm-12 col-lg-6">
     <form class="form-horizontal" role="form" action="/PHP_Project/model/serie_post.php" method="post">
         <div class="form-group">
-            <label class="control-label col-sm-5" for="name">Nom série :</label>
-            <div class="col-sm-7">
+            <label class="control-label col-sm-4 col-lg-5" for="name">Nom série :</label>
+            <div class="col-sm-8 col-lg-7">
                 <input type="text" class="form-control" name="name" id="name" placeholder="Entrez le nom de la série">
             </div>
             
-            <label class="control-label col-sm-5" for="numEpisode">Numéro de l'épisode :</label>
-            <div class="col-sm-7">
+            <label class="control-label col-sm-offset-0 col-sm-4 col-lg-5" for="numEpisode">Numéro épisode :</label>
+            <div class="col-sm-8 col-lg-7">
                 <input type="number" class="form-control" name="numEpisode" id="numEpisode" placeholder="Entrez le numéro de l'épisode">
             </div>
             
-            <label class="control-label col-sm-5" for="url">URL Embed :</label>
-            <div class="col-sm-7">
+            <label class="control-label col-sm-4 col-lg-5" for="url">URL Embed :</label>
+            <div class="col-sm-8 col-lg-7">
                 <input type="text" class="form-control" name="url" id="url" placeholder="Entrez l'url au format embed de l'épisode">
             </div>
-            <label class="control-label col-sm-5" for="author">Auteur :</label>
-            <div class="col-sm-7">
+            <label class="control-label col-sm-4 col-lg-5" for="author">Auteur :</label>
+            <div class="col-sm-8 col-lg-7">
                 <input type="text" class="form-control" name="author" id="author" placeholder="Entrez le nom de l'auteur">
             </div>
         </div>
         
         
         <div class="form-group">
-            <label class="control-label col-sm-5" for="description">Description :</label>
-            <div class="col-sm-7">
+            <label class="control-label col-sm-4 col-lg-5" for="description">Description :</label>
+            <div class="col-sm-8 col-lg-7">
                 <textArea type="text" class="form-control" name="description" id="description" placeholder="Entrez une description de l'épisode"></textArea>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-5 col-sm-7">
+            <div class="col-sm-offset-4 col-lg-offset-5 col-sm-8 col-lg-7">
                 <button type="submit" class="btn btn-success">Ajouter épisode</button>
             </div>
         </div>
@@ -41,30 +41,52 @@
 
 
 
-    <div class="col-sm-6">
-    <form class="form-horizontal" role="form" action="/PHP_Project/model/channel_post.php" method="post">
+    <div class="col-sm-12 col-lg-6">
+    <form class="form-horizontal" role="form">
         <div class="form-group">
-            <label class="control-label col-sm-5" for="channelName">Nom du channel :</label>
-            <div class="col-sm-7">
+            <label class="control-label col-sm-4 col-lg-5" for="userName">Nom de l'utilisateur :</label>
+            <div class="col-sm-8 col-lg-5">
+                <input type="text" class="form-control" name="userName" id="userName" placeholder="Entrez le nom de l'utilisateur à ajouter">
+            </div>
+        </div>
+            <div class="form-group">
+            <div class="col-sm-offset-4 col-lg-offset-5 col-sm-8 col-lg-7">
+                <button id="submitUserName" type="button" class="btn btn-warning">Ajouter utilisateur</button>
+            </div>
+            </div>
+    </form>
+    </div>
+    <div class="col-sm-12 col-lg-6">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4 col-lg-5" for="channelName">Nom du channel :</label>
+            <div class="col-sm-8 col-lg-5">
                 <input type="text" class="form-control" name="channelName" id="channelName" placeholder="Entrez le nom du channel à ajouter">
             </div>
         </div>
             <div class="form-group">
-            <div class="col-sm-offset-5 col-sm-7">
-                <button type="submit" class="btn btn-info">Ajouter channel</button>
+            <div class="col-sm-offset-4 col-lg-offset-5 col-sm-8 col-lg-7">
+                <button id="submitChannel" type="button" class="btn btn-info">Ajouter channel</button>
+            </div>
             </div>
     </form>
     </div>
-    </div>
-    
+</div>
 </article>
 
 
-<article>
+<article >
+<div class="col-sm-12">
     <hr/>
-    <h2>Listes de épisodes</h2>
+</div>
+    <h2>Listes des épisodes <small style="float:right;">EFFECTUER UNE RECHERCHE : <input type="text" name="q" id="q" /><button id="cancelButton" class="btn btn-danger" type="button" disabled="disabled">X</button></small></h2>
+    
+<!--fin du formulaire-->
+ 
+<!--preparation de l'affichage des resultats-->
+<div id="results">
     <?php 
-    $messagesParPage=8; //Nous allons afficher 5 messages par page.
+    $messagesParPage=6; //Nous allons afficher 5 messages par page.
  
  try
 {
@@ -80,6 +102,7 @@ catch(Exception $e)
     $result = $bdd->query("SELECT COUNT(*) AS nb FROM series");
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $total = $row['nb'];
+    $compteur = 0;
     
     //$donnees_total=mysqli_fetch_assoc($retour_total); //On range retour sous la forme d'un tableau.
     //$total=$donnees_total['total']; //On récupère le total pour le placer dans la variable $total.
@@ -99,22 +122,23 @@ $premiereEntree=($pageActuelle-1)*$messagesParPage;
 $query = 'SELECT * FROM series ORDER BY id ASC LIMIT '.$premiereEntree.', '.$messagesParPage.'';
 if ($retour_messages = $bdd->query($query)) {
 ?>
-        <p>
+       <div class="col-sm-12">
             <?php
 while($donnees = $retour_messages->fetch_assoc()) {
-     ?>
-                <div class="serieStyleInline">
-                    <?php echo $donnees['name']; ?>
-                        <?php echo $donnees['numEpisode']; ?>
-                            <br/>
-                            <?php echo $donnees['src']; ?>
+ ?>
+                <div class="serieStyleInline col-sm-12 col-md-6 col-lg-4">
+                    <h3 style="width:300px;white-space: nowrap;overflow:scroll !important;"><?php echo $donnees['name']; ?>
+                        <?php echo "#" .$donnees['numEpisode'] . " <small style='float:center;'>" . $donnees['date']."</small>"; ?></h3>
+                            <?php echo $donnees['src'] ; ?>
                 </div>
                 <?php
+                $compteur++;
+    }
 }?>
-        </p>
+      </div>
         <?php
 
-echo '<p align="center">Page : '; 
+echo '<p class="col-sm-12"align="center">Page : '; 
 for($i=1; $i<=$nombreDePages; $i++) {
      if($i==$pageActuelle) {
          echo ' ['.$i.'] '; 
@@ -123,15 +147,73 @@ for($i=1; $i<=$nombreDePages; $i++) {
      }
 }
 echo '</p>';
-}
+
    
         ?>
+        </div>
 </article>
 
 <article>
+<div class="col-sm-12">
 <hr/>
-    <h2>Célébrités à suivre</h2>
+   
+  </div>  
+   <h2>Célébrités à suivre</h2>
+   <div class="row" id="userAddedDiv">
 
-    
-    
+   <?php 
+        $result = $bdd->query("SELECT COUNT(*) AS nb FROM channels");
+
+        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        $total = $row['nb'];
+        $compteur = 0;
+    //$donnees_total=mysqli_fetch_assoc($retour_total); //On range retour sous la forme d'un tableau.
+    //$total=$donnees_total['total']; //On récupère le total pour le placer dans la variable $total.
+    $userParPage=3;
+    //Nous allons maintenant compter le nombre de pages.
+    $nombreDePagesUser=ceil($total/$userParPage);
+
+if(isset($_GET['pageUser'])) {
+     $pageUserActuelle=intval($_GET['pageUser']);
+     if($pageUserActuelle>$nombreDePagesUser) {
+          $pageUserActuelle=$nombreDePagesUser;
+     }
+}
+else { $pageUserActuelle=1; }
+ 
+$premiereEntree=($pageUserActuelle-1)*$userParPage;
+$query = 'SELECT * FROM channels ORDER BY id ASC LIMIT '.$premiereEntree.', '.$userParPage.'';
+if ($retour_messages = $bdd->query($query)) {
+?>
+      
+            <?php
+while($donnees = $retour_messages->fetch_assoc()) {
+ ?>
+                <div style="max-height:500px;overflow:scroll;"class="col-sm-12 col-md-6 col-lg-4">
+            <div class="thumbnail">
+            <img src="<?php echo $donnees['img'] ; ?>" alt="<?php echo $donnees['name'] ; ?>">
+            <div class="caption">
+                <h3><?php echo $donnees['name'] ; ?></h3>
+                <p><?php echo $donnees['description'] ; ?></p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            </div>
+           </div>
+           </div>
+                <?php
+                $compteur++;
+    }
+}?>
+      
+        <?php
+   echo '<p class="col-sm-12"align="center">Page : '; 
+   
+for($i=1; $i<=$nombreDePagesUser; $i++) {
+     if($i==$pageUserActuelle) {
+         echo ' ['.$i.'] '; 
+     } else {
+          echo ' <a href="?pageUser='.$i.'">'.$i.'</a> ';
+     }
+}
+echo '</p>';?>
+</div>
 </article>

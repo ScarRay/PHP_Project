@@ -1,5 +1,5 @@
-<div class="push"></div>
-<footer class="bs-docs-footer" role="contentinfo">
+<div class="push col-sm-12"></div>
+<footer class="col-sm-12 bs-docs-footer" role="contentinfo">
     
     <ul class="bs-docs-footer-links"> 
         <li><a href="https://github.com/twbs/bootstrap">Facebook</a>            </li> 
