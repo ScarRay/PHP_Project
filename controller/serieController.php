@@ -1,7 +1,7 @@
 <article>
     
-    <h2><img id="hideAddEps" class="hideCategorie" src="/PHP_Project/controller/down-arrow.png">  Ajouter un épisode ou channel à suivre</h2>
-    <div class="col-sm-12" style="display:none;">
+    <h2><img id="hideAddEps" class="hideCategorie rotate1" src="/PHP_Project/controller/down-arrow.png">  Ajouter un épisode ou channel à suivre</h2>
+    <div id="addEps" class="col-sm-12" style="display:none;">
     <div class="col-sm-12 col-lg-6">
     <form class="form-horizontal" role="form" action="/PHP_Project/model/serie_post.php" method="post">
         <div class="form-group">
@@ -85,7 +85,7 @@
 <!--fin du formulaire-->
  
 <!--preparation de l'affichage des resultats-->
-<div id="results" style="display:none;">
+<div id="listeEps" style="display:none;">
     <?php 
     $messagesParPage=6; //Nous allons afficher 5 messages par page.
  
@@ -160,7 +160,7 @@ echo '</p>';
    
   </div>  
    <h2><img id="hideCeleb" class="hideCategorie" src="/PHP_Project/controller/down-arrow.png">  Célébrités à suivre</h2>
-   <div style="display:none;" class="row" id="userAddedDiv">
+   <div id="userAddedDiv" style="display:none;" class="row" >
 
    <?php 
         $result = $bdd->query("SELECT COUNT(*) AS nb FROM channels");

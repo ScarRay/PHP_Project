@@ -1,11 +1,45 @@
+var valueHideAdd = 0;
+var valueHideListe = 0;
+var valueHideCeleb = 0;
 
 $(document).ready(function () {
-
-	$("#hideCeleb").rotate({ endDeg:180,duration:0.2, persist:true });
- 
-
-
-
+    
+    $("#hideAddEps").click(function() {
+        $("#hideAddEps").rotate({
+        bind:{
+            click: function(){
+                valueHideAdd +=180;
+                $(this).rotate({ animateTo:valueHideAdd})
+            }
+        }
+    });
+        if($('#addEps').css('display') == 'none') $('#addEps').show(); 
+        else $('#addEps').hide();
+    });
+    $("#hideListeEps").click(function() {
+        $("#hideListeEps").rotate({
+        bind:{
+            click: function(){
+                valueHideListe +=180;
+                $(this).rotate({ animateTo:valueHideListe})
+            }
+        }
+    });
+        if($('#listeEps').css('display') == 'none') $('#listeEps').show(); 
+        else $('#listeEps').hide();
+    });
+    $("#hideCeleb").click(function() {
+        $("#hideCeleb").rotate({
+        bind:{
+            click: function(){
+                valueHideCeleb +=180;
+                $(this).rotate({ animateTo:valueHideCeleb})
+            }
+        }
+    });
+        if($('#userAddedDiv').css('display') == 'none') $('#userAddedDiv').show(); 
+        else $('#userAddedDiv').hide();
+    });
 
 var inputUserName = '';
 var apiKey = "AIzaSyAGL37W8vsO8Mn8-SE8hKBjyj2r6aohSDQ";
