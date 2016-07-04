@@ -1,6 +1,6 @@
-var valueHideAdd = 0;
-var valueHideListe = 0;
-var valueHideCeleb = 0;
+var valueHideAdd = 180;
+var valueHideListe = 180;
+var valueHideCeleb = 180;
 
 $(document).ready(function () {
     
