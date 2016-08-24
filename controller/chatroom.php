@@ -2,9 +2,10 @@
 
 <?php
 // Connexion à la base de données
+    //'mysql.hostinger.fr', 'u775661140_user', 'rootroot', 'u775661140_webto'
 try
 {
-	$bdd = new PDO('mysql:host=localhost;dbname=webtool;charset=utf8', 'root', 'root');
+	$bdd = new PDO('mysql:host=mysql.hostinger.fr;dbname=u775661140_webto;charset=utf8', 'u775661140_user', 'rootroot');
 }
 catch(Exception $e)
 {

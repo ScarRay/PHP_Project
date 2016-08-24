@@ -1,7 +1,7 @@
 <article>
     <?php 
     $messagesParPage=5; //Nous allons afficher 5 messages par page.
-    $bdd = new mysqli("localhost", "root", "root", "webtool");
+    $bdd = new mysqli('mysql.hostinger.fr', 'u775661140_user', 'rootroot', 'u775661140_webto');
 
     //Une connexion SQL doit être ouverte avant cette ligne...
     $result = $bdd->query("SELECT COUNT(*) AS nb FROM jeux_video");

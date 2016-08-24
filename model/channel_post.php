@@ -2,7 +2,7 @@
 // Connexion à la base de données
 try
 {
-	$bdd = mysqli_connect('localhost', 'root', 'root', 'webtool');
+	$link = mysqli_connect('mysql.hostinger.fr', 'u775661140_user', 'rootroot', 'u775661140_webto');
 }
 catch(Exception $e)
 {

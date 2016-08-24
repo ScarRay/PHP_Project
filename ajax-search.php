@@ -1,6 +1,6 @@
 <?php
 //connexion à la base de données 
-$bdd = new mysqli("localhost", "root", "root", "webtool");
+$link = mysqli_connect('mysql.hostinger.fr', 'u775661140_user', 'rootroot', 'u775661140_webto');
  
 //recherche des résultats dans la base de données
 $compteur = $bdd->query('SELECT count(name) as nb FROM series');
@@ -38,7 +38,7 @@ fonctions
 *****/
 function safe($var)
 {
-  $bdd = new mysqli("localhost", "root", "root", "webtool");
+  $bdd = new mysqli('mysql.hostinger.fr', 'u775661140_user', 'rootroot', 'u775661140_webto');
 	$var = mysqli_real_escape_string($bdd, $var);
 	$var = addcslashes($var, '%_');
 	$var = trim($var);

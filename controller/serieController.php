@@ -90,7 +90,7 @@
     $messagesParPage=6; 
  try
 {
-    $bdd = new mysqli("localhost", "root", "root", "webtool");
+    $bdd = new mysqli('mysql.hostinger.fr', 'u775661140_user', 'rootroot', 'u775661140_webto');
 }
 catch(Exception $e)
 {
