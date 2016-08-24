@@ -1,15 +1,6 @@
-<div class="push col-sm-12"></div>
-<footer class="col-sm-12 bs-docs-footer" role="contentinfo">
-    
-    <ul class="bs-docs-footer-links"> 
-        <li><a href="https://github.com/twbs/bootstrap">Facebook</a>            </li> 
-        <li><a href="https://twitter.com/getbootstrap">CV</a></li>
-    </ul>
-    <div class="container">Copyright by windoZ Studio</div>
-    
-<link id="cssTheme" rel="stylesheet" type="text/css" href="/PHP_Project/css/themePurple.css">
-<script type="text/javascript">
-    function set_theme(){
+window.onload = function ()
+    {
+        console.log(document.cookie);
         //on regarde si il y a un cookie dans le document. (longueur > a 0)
         if (document.cookie.length != 0)
         {
@@ -25,9 +16,8 @@
                 setCookie("theme", '/PHP_Project/css/themeRed.css', 365);
             }
         }
+}
            // if (tableauCookie[1]!=0) document.getElementById("cssTheme").href = tableauCookie[1];
-    }
-        
 
 function change_cookie_style(feuille){
     //On créé un cookie qui récupère le paramètre "feuille" qui est le chemin vers le css a sauvegarder
@@ -49,5 +39,4 @@ function getCookie(cname) {
         }
     }
     return "";
-}</script>
-</footer>
+}

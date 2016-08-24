@@ -1,0 +1,27 @@
+h1 {
+    color:midnightblue;
+}
+h2 {
+    color:midnightblue !important;
+}
+
+body {
+    background-color: cadetblue;
+}
+
+article {
+    padding-left: 1em;
+    border: dotted 3px lightsteelblue;
+}
+
+a {
+    
+    text-decoration: ;
+    color: blue;
+    font-weight: 
+}
+
+footer{
+    color: azure;
+    font-weight: bold;
+}

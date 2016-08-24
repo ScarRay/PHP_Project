@@ -1,0 +1,28 @@
+h1 {
+    color: purple;
+}
+h2 {
+    color: rebeccapurple !important;
+
+}
+
+body {
+    background-color: plum;
+}
+
+article {
+
+    padding-left: 1em;
+    border: dotted 3px purple ;
+    color: ;
+}
+
+a {
+    text-decoration: ;
+    color: purple;
+}
+
+footer{
+    color: azure;
+    font-weight: bold;
+}

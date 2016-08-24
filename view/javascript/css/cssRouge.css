@@ -1,0 +1,28 @@
+h1 {
+    color: darkred;
+}
+h2 {
+    color: firebrick !important;
+
+}
+
+body {
+    background-color: darksalmon;
+}
+
+article {
+    
+    padding-left: 1em;
+    border: dotted 3px red ;
+    color: ;
+}
+
+a {
+    text-decoration: ;
+    color: darksalmon;
+}
+
+footer{
+    color: azure;
+    font-weight: bold;
+}
