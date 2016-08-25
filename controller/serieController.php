@@ -127,9 +127,9 @@ if ($retour_messages = $bdd->query($query)) {
 while($donnees = $retour_messages->fetch_assoc()) {
  ?>
                 <div class="serieStyleInline col-sm-12 col-md-6 col-lg-4">
-                    <h3 style="width:300px;white-space: nowrap;overflow:scroll !important;"><?php echo $donnees['name']; ?>
-                        <?php echo "#" .$donnees['numEpisode'] . " <small style='float:center;'>" . $donnees['date']."</small>"; ?></h3>
-                            <?php echo $donnees['src'] ; ?>
+                    <h3 style="width:300px;white-space: nowrap;overflow:scroll !important;"><?php echo htmlspecialchars($donnees['name']); ?>
+                        <?php echo "#" .htmlspecialchars($donnees['numEpisode']) . " <small style='float:center;'>" . htmlspecialchars($donnees['date'])."</small>"; ?></h3>
+                            <?php echo htmlspecialchars($donnees['src']) ; ?>
                 </div>
                 <?php
                 $compteur++;
@@ -191,10 +191,10 @@ while($donnees = $retour_messages->fetch_assoc()) {
  ?>
                 <div style="max-height:500px;overflow:scroll;"class="col-sm-12 col-md-6 col-lg-4">
             <div class="thumbnail">
-            <img src="<?php echo $donnees['img'] ; ?>" alt="<?php echo $donnees['name'] ; ?>">
+            <img src="<?php echo htmlspecialchars($donnees['img']) ; ?>" alt="<?php echo htmlspecialchars($donnees['name']) ; ?>">
             <div class="caption">
-                <h3><?php echo $donnees['name'] ; ?></h3>
-                <p><?php echo $donnees['description'] ; ?></p>
+                <h3><?php echo htmlspecialchars($donnees['name']) ; ?></h3>
+                <p><?php echo htmlspecialchars($donnees['description']) ; ?></p>
                 <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
             </div>
            </div>
