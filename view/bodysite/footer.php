@@ -83,8 +83,8 @@ mysql_close();
     // $output contains the output string
     $output = curl_exec($ch);
     $res = json_decode($output,true);
-    echo $res[1];
-    var_dump($res);
+    echo $res[0]['sha'];
+    //var_dump($res);
     // close curl resource to free up system resources
     curl_close($ch); 
 
