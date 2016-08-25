@@ -18,9 +18,8 @@ $date  = "$now_d-$now_m-$now_Y";
 @MYSQL_SELECT_DB("$base") or die ("Connexion à la base $base impossible");
 
 // On efface les IP qui sont "périmées" (date actuelle différente des dates précédentes)
-
-$delete = "DELETE * FROM $table WHERE date != '$date'";
-$query = "Mysql_Query($delete)";
+//$delete = "DELETE * FROM $table WHERE date != '$date'";
+//$query = "Mysql_Query($delete)";
 
 // On effectue une recherche pour savoir si l'IP est déjà enregistrée.
 
@@ -28,12 +27,30 @@ $query = Mysql_Query("SELECT ip FROM $table WHERE date='$date'");
 
 // On vérifie l'ip
 
-if($ip != '$REMOTE_ADDR')
+    $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if(isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+
+
+
+if($ipaddress != '$REMOTE_ADDR')
 {
 
 // On insère l'ip si elle n'existe pas.
 
-$insert = "INSERT INTO $table (ip,date) VALUES('$REMOTE_ADDR','$date')";
+$insert = "INSERT INTO $table (ip,date) VALUES('$ipaddress','$date')";
 $query = Mysql_Query($insert);
 
 }
@@ -56,7 +73,6 @@ echo $compteur." Visiteurs.";
 
 mysql_close();
 
-?>
 ?>
 
 <div class="push col-sm-12"></div>
