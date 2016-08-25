@@ -67,7 +67,7 @@ mysql_close();
 ?>
 
 <div class="push col-sm-12"></div>
-<div class="well">Aujourd'hui nous avons eu : <?php echo $compteur." visiteurs." ?></div>
+<div id="container"><div class="well">Aujourd'hui nous avons eu : <?php echo $compteur." visiteurs." ?></div></div>
 <footer class="col-sm-12 bs-docs-footer" role="contentinfo">
     
     <ul class="bs-docs-footer-links"> 
