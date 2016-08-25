@@ -83,7 +83,7 @@ mysql_close();
     // $output contains the output string
     $output = curl_exec($ch);
     $output = json_encode($output);
-    echo $output[0]['commit']['message'];
+    echo $output[0];
     // close curl resource to free up system resources
     curl_close($ch); 
 
