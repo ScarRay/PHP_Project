@@ -70,9 +70,22 @@ mysql_close();
 <div id="footerVisite"><div class="well">
 <?php
 // a simple way to get a user's repo
-$res = file_get_contents("https://api.github.com/repos/ScarRay/PHP_Project/commits");
-$res = json_decode($res);
-echo $res;
+
+    $ch = curl_init();
+
+    // set url
+    curl_setopt($ch, CURLOPT_URL, "https://api.github.com/repos/ScarRay/PHP_Project/commits");
+
+    //return the transfer as a string
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+
+    // $output contains the output string
+    $output = curl_exec($ch);
+    echo $output;
+    // close curl resource to free up system resources
+    curl_close($ch); 
+
 ?>
 <br/>Aujourd'hui nous avons eu : <?php echo $compteur." visiteurs." ?></div></div>
 <footer class="col-sm-12 bs-docs-footer" role="contentinfo">
