@@ -60,15 +60,6 @@ $query = Mysql_Query($insert);
 $select = Mysql_Query("SELECT ip FROM $table WHERE date = '$date'");
 $compteur = mysql_num_rows($select);
 
-if($compteur == '1' OR $compteur == '0')
-{
-echo "1 Visiteur.";
-}
-else
-{
-echo $compteur." Visiteurs.";
-}
-
 // On ferme la connection avec MySQL
 
 mysql_close();
@@ -76,6 +67,7 @@ mysql_close();
 ?>
 
 <div class="push col-sm-12"></div>
+<div class="well">Aujourd'hui nous avons eu : <?php echo $compteur." visiteurs." ?></div>
 <footer class="col-sm-12 bs-docs-footer" role="contentinfo">
     
     <ul class="bs-docs-footer-links"> 
