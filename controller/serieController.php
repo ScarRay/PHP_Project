@@ -129,7 +129,7 @@ while($donnees = $retour_messages->fetch_assoc()) {
                 <div class="serieStyleInline col-sm-12 col-md-6 col-lg-4">
                     <h3 style="width:300px;white-space: nowrap;overflow:scroll !important;"><?php echo htmlspecialchars($donnees['name']); ?>
                         <?php echo "#" .htmlspecialchars($donnees['numEpisode']) . " <small style='float:center;'>" . htmlspecialchars($donnees['date'])."</small>"; ?></h3>
-                            <?php echo htmlspecialchars($donnees['src']) ; ?>
+                            <?php echo $donnees['src'] ; ?>
                 </div>
                 <?php
                 $compteur++;
