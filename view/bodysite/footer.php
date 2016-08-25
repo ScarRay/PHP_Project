@@ -82,8 +82,9 @@ mysql_close();
 
     // $output contains the output string
     $output = curl_exec($ch);
-    $output = json_encode($output);
+    $output = json_decode($output);
     echo $output[0];
+    echo $output;
     // close curl resource to free up system resources
     curl_close($ch); 
 
