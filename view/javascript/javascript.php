@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8"> 
-        <title>Mon super site</title>
+        <title>windoZ Dashboard</title>
         <link href="/PHP_Project/css/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
         <link id="cssChangeur" rel="stylesheet" type="text/css" href="css/cssRouge.css" >
 
