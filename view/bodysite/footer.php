@@ -1,3 +1,64 @@
+<?php
+$host = "mysql.hostinger.fr"; // Hôte : ex : localhost
+$login = "u775661140_user"; // Login d'accès à la base
+$passe = "rootroot"; // Password
+$base = "u775661140_webto"; // Base de données
+$table = "visites";
+//$link = mysqli_connect('mysql.hostinger.fr', 'u775661140_user', 'rootroot', 'u775661140_webto');
+// On récupère la date du jour.
+
+$now_Y = date("Y");
+$now_m = date("m");
+$now_d = date("d");
+$date  = "$now_d-$now_m-$now_Y";
+
+// On effectue une connection à la table
+
+@MYSQL_CONNECT($host,$login,$passe) or die ("<font face=arial size=2><b>Impossible de tenter une connection !</b>.");
+@MYSQL_SELECT_DB("$base") or die ("Connexion à la base $base impossible");
+
+// On efface les IP qui sont "périmées" (date actuelle différente des dates précédentes)
+
+$delete = "DELETE * FROM $table WHERE date != '$date'";
+$query = "Mysql_Query($delete)";
+
+// On effectue une recherche pour savoir si l'IP est déjà enregistrée.
+
+$query = Mysql_Query("SELECT ip FROM $table WHERE date='$date'");
+
+// On vérifie l'ip
+
+if($ip != '$REMOTE_ADDR')
+{
+
+// On insère l'ip si elle n'existe pas.
+
+$insert = "INSERT INTO $table (ip,date) VALUES('$REMOTE_ADDR','$date')";
+$query = Mysql_Query($insert);
+
+}
+
+// On récupère la valeur du compteur
+
+$select = Mysql_Query("SELECT ip FROM $table WHERE date = '$date'");
+$compteur = mysql_num_rows($select);
+
+if($compteur == '1' OR $compteur == '0')
+{
+echo "1 Visiteur.";
+}
+else
+{
+echo $compteur." Visiteurs.";
+}
+
+// On ferme la connection avec MySQL
+
+mysql_close();
+
+?>
+?>
+
 <div class="push col-sm-12"></div>
 <footer class="col-sm-12 bs-docs-footer" role="contentinfo">
     

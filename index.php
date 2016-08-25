@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Mon super site</title>
+    <title>windoZ Dashboard</title>
 
     <link href="/PHP_Project/css/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <script src="/PHP_Project/js/jquery-1.12.3.js"></script>
