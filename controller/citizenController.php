@@ -58,7 +58,8 @@ $result = $bdd->query('SELECT COUNT(*) AS nb FROM citizen_news');
 $compteur = 0;
 while ($compteur<5 && $donnees = $reponse->fetch_assoc())
 {
-	echo '<a type="button" class="btn btn-primary" href="#'.htmlspecialchars($donnees['idName']).'">'. htmlspecialchars($donnees['siteName']) .'</a>';
+    $nomSite = htmlspecialchars($donnees['siteName']);
+	echo '<a type="button" class="btn btn-primary" href="#'.htmlspecialchars($donnees['idName']).'">'. $nomSite .'</a>';
     $compteur ++;
 } 
 
@@ -75,10 +76,9 @@ if($nbSite>5) {
 <?php
 }
 while($donnees = $reponse->fetch_assoc()) {
-?>
-        
-            <?php
-            echo '<li><a href="#">'.htmlspecialchars($donnees['siteName']).'</a></li>';
+
+            $nomSite = htmlspecialchars($donnees['siteName']);
+            echo '<li><a href="#">'.$nomSite.'</a></li>';
 }
 
 $compteur2 = 1;
