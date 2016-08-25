@@ -67,7 +67,14 @@ mysql_close();
 ?>
 
 <div class="push col-sm-12"></div>
-<div id="footerVisite"><div class="well">Aujourd'hui nous avons eu : <?php echo $compteur." visiteurs." ?></div></div>
+<div id="footerVisite"><div class="well">
+<?php
+// a simple way to get a user's repo
+$res = file_get_contents("https://api.github.com/repos/ScarRay/PHP_Project/commits");
+$res = json_decode($res);
+echo $res;
+?>
+<br/>Aujourd'hui nous avons eu : <?php echo $compteur." visiteurs." ?></div></div>
 <footer class="col-sm-12 bs-docs-footer" role="contentinfo">
     
     <ul class="bs-docs-footer-links"> 
