@@ -78,7 +78,7 @@ while($donnees = $reponse->fetch_assoc()) {
 ?>
         
             <?php
-            echo '<li><a href="#'/*.htmlspecialchars($donnees['idName']).*/'">'.htmlspecialchars($donnees['siteName']).'</a></li>';
+            echo '<li><a href="#">'.htmlspecialchars($donnees['siteName']).'</a></li>';
 }
 
 $compteur2 = 1;
