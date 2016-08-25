@@ -2,7 +2,15 @@
 body {
     background-color: #f0f0f0 !important;
 }
-
+#footerVisite{
+    margin-top: 60px;
+    margin-bottom: 13px;
+    padding:2em;
+    width:80%;
+    margin-left: 10%;
+    background-color:#fafafa;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .hideCategorie {
     cursor:pointer;
     height: auto; 
