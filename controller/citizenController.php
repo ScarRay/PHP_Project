@@ -117,7 +117,7 @@ if($nbSite>5) {?></div>
 </div>
 <div id="iframeContainer1" style="height:1000px;" class="iframeContainer">
     <div id="loadingFrame"> <img style="margin-left:60px;margin-bottom:30px;" alt="Loading..." src="img/loading.gif" />
-        <p>Please select an article</p>
+        <p>Please select an article </p>
         </div>
        
         <!--<iframe id="iframe1" width="49%" height="1000px" sandbox="" src="about:blank" name="newsIframe" seamless align="left"></iframe>--> 
