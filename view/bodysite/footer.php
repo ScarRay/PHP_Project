@@ -57,7 +57,8 @@ $query = Mysql_Query($insert);
 
 // On récupère la valeur du compteur
 
-$select = Mysql_Query("SELECT ip FROM $table WHERE date = '$date'");
+//$select = Mysql_Query("SELECT ip FROM $table WHERE date = '$date'");
+$select = Mysql_Query("SELECT ip FROM $table");
 $compteur = mysql_num_rows($select);
 
 // On ferme la connection avec MySQL
@@ -83,7 +84,7 @@ mysql_close();
     // $output contains the output string
     $output = curl_exec($ch);
     $res = json_decode($output,true);
-    echo 'MAJ '.substr($res[0]['commit']['author']['date'],0,10).' : '.$res[0]['commit']['message'];
+    echo 'Dernière MAJ '.substr($res[0]['commit']['author']['date'],0,10).' : '.$res[0]['commit']['message'];
     //var_dump($res);
     // close curl resource to free up system resources
     curl_close($ch); 
