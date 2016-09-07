@@ -1,5 +1,7 @@
 
-<article><h2>Résumé</h2>
+<article>
+
+<h2>Résumé</h2>
 <h3>Bonjour !</h3>
 <p>Je suis Paul "windoZ" C. et voici mon e-portefolio.</p>
 <p>Tout les outils sur ce site ont été développé par moi et sont utilisables par tous.<br/>
